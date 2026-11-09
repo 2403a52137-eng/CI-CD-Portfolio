@@ -1,0 +1,8 @@
+{
+  "name": "ci-cd-portfolio",
+  "version": "1.0.0",
+  "description": "Personal Portfolio Website using CI/CD",
+  "scripts": {
+    "test": "node --test"
+  }
+}
