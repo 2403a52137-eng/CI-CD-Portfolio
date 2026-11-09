@@ -3,20 +3,30 @@ function validateEmail(email) {
     return pattern.test(email);
 }
 
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+if (typeof document !== "undefined") {
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
-    const result = document.getElementById("result");
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault();
 
-    if (name === "" || message === "") {
-        result.textContent = "Please fill all fields.";
-    } else if (!validateEmail(email)) {
-        result.textContent = "Please enter a valid email.";
-    } else {
-        result.textContent = "Thank you! Your message is submitted.";
-        document.getElementById("contactForm").reset();
-    }
-});
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+        const result = document.getElementById("result");
+
+        if (name === "" || message === "") {
+            result.textContent = "Please fill all fields.";
+        }
+        else if (!validateEmail(email)) {
+            result.textContent = "Please enter a valid email.";
+        }
+        else {
+            result.textContent = "Thank you! Your message is submitted.";
+            document.getElementById("contactForm").reset();
+        }
+    });
+
+}
+
+if (typeof module !== "undefined") {
+    module.exports = { validateEmail };
+}
